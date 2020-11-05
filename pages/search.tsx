@@ -9,36 +9,24 @@ interface ISearchEngine {
     url: string
 }
 
-export default function Search({ searchQuery }) {
-    const router = useRouter();
-    const { query } = router.query || searchQuery;
+export default function Search({ query }) {
     return (
         <Fragment>
-            <section className="padded-content">
-                <div className="row">
-                    <div className="portion whole">
-                        <div className="border-thick margin-bottom-tiny"></div>
-                        <Header text="Search result" />
+            {data.map((se: ISearchEngine, i: number) => {
+                return (
+                    <div className="portion" key={i}>
+                        <a href={se.url + query} className="ff-button bg-blue text-white" key={`a_href_${i}`} target="_blank">
+                            <img
+                                src={"./assets/icons/" + se.icon}
+                                alt={se.name}
+                                key={`img_${i}`}
+                                style={{ width: "15px", height: "15px" }}
+                            />
+                            &nbsp;{se.name}
+                        </a>
                     </div>
-                </div>
-                <div className="row">
-                    <div className="portion whole">
-                        <p>Search: {query}</p>
-                    </div>
-                    <div className="row">
-                        {data.map((se: ISearchEngine, i: number) => {
-                            return (
-                                <div className="portion">
-                                    <a href={se.url + query} className="ff-button bg-blue text-white" key={i} target="_blank">
-                                        <img src={"./assets/icons/" + se.icon} alt={se.name} style={{width: "15px", height: "15px"}}/>
-                                        &nbsp;{se.name}
-                                    </a>
-                                </div>
-                            )
-                        })}
-                    </div>
-                </div>
-            </section>
+                )
+            })}
         </Fragment>
     )
 }
