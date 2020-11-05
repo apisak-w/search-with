@@ -77,13 +77,6 @@ export default function Home() {
                         </div>
                     </div> : null
                 }
-                {/* <div className="row">
-                    <div className="portion whole">
-                        <Link href={`/search?query=${query}`}>
-                            <button className="bg-blue text-white size-large">Search</button>
-                        </Link>
-                    </div>
-                </div> */}
             </section>
         </Fragment>
     )

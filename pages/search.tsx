@@ -1,6 +1,4 @@
-import { useRouter } from 'next/router'
 import { Fragment } from 'react';
-import Header from '../components/Header';
 import data from '../data/searchEngine.json';
 
 interface ISearchEngine {
