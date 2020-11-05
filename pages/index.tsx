@@ -15,9 +15,6 @@ export default function Home() {
                     <div className="portion whole">
                         <div className="border-thick margin-bottom-tiny"></div>
                         <Header text="Search with" />
-                        {/* <h1 className="text-hue margin-bottom-fixed">
-                            <strong>Search with</strong>
-                        </h1> */}
                     </div>
                 </div>
                 <div className="row">
