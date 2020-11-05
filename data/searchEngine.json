@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Google",
+        "icon": "google.png",
+        "url": "https://www.google.com/search?q="
+    },
+    {
+        "name": "Duckduckgo",
+        "icon": "duckduckgo.ico",
+        "url": "https://duckduckgo.com/?q="
+    },
+    {
+        "name": "Qwant",
+        "icon": "qwant.ico",
+        "url": "https://www.qwant.com/?q="
+    }
+]
