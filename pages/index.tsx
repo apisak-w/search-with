@@ -18,7 +18,6 @@ const reducer = (state: IState, { type, payload }) => {
     switch (type) {
         case 'TYPED_QUERY':
             return {
-                ...state,
                 query: payload,
                 isTypedQuery: true
             }
@@ -28,14 +27,15 @@ const reducer = (state: IState, { type, payload }) => {
 }
 
 export default function Home() {
-    const router = useRouter()
     const [state, dispatch] = useReducer(reducer, initialState)
-    if (Object.keys(router.query).length > 0) {
+    const router = useRouter()
+    
+    if (Object.keys(router.query).includes('query') && !state.isTypedQuery) {
         const { query } = router.query
         state.query = query
         state.isTypedQuery = true
     }
-
+    
     return (
         <Fragment>
             <Head>
