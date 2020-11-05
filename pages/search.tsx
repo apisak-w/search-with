@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import { Fragment } from 'react';
-import Header from '../components/header';
+import Header from '../components/Header';
 
 export default function Search({ searchQuery }) {
     const router = useRouter();
