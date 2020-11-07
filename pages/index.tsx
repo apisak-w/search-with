@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { Fragment, useReducer } from 'react'
 import Header from '../components/Header';
-import Search from '../components/_Search';
+import Search from '../components/Search';
 
 interface IState {
     isTypedQuery: boolean,
@@ -35,7 +35,11 @@ export default function Home() {
         state.query = query
         state.isTypedQuery = true
     }
-    
+
+    if (state.query.length <= 0) {
+        state.isTypedQuery = false
+    }
+
     return (
         <Fragment>
             <Head>
