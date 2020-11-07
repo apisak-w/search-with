@@ -13,9 +13,7 @@ export default function Search({ query }) {
         <Fragment>
             {data.map((se: ISearchEngine, i: number) => {
                 return (
-                    <div className="portion" key={i}>
-                        <SearchEngine url={se.url + query} icon={"./assets/icons/" + se.icon} name={se.name} />
-                    </div>
+                    <SearchEngine url={se.url + query} icon={"./assets/icons/" + se.icon} name={se.name} />
                 )
             })}
         </Fragment>

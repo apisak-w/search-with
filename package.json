@@ -9,6 +9,7 @@
     "export": "next export"
   },
   "dependencies": {
+    "bulma": "^0.9.1",
     "fictoan": "^2.24.1",
     "next": "10.0.1",
     "react": "17.0.1",

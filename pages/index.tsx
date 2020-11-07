@@ -29,7 +29,7 @@ const reducer = (state: IState, { type, payload }) => {
 export default function Home() {
     const [state, dispatch] = useReducer(reducer, initialState)
     const router = useRouter()
-    
+
     if (Object.keys(router.query).includes('query') && !state.isTypedQuery) {
         const { query } = router.query
         state.query = query
@@ -46,41 +46,45 @@ export default function Home() {
                 <title>Search with</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <section className="padded-content">
-                <div className="row">
-                    <div className="portion whole">
-                        <div className="border-thick margin-bottom-tiny"></div>
-                        <Header text="Search with" />
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="portion whole">
-                        <div className="ff-form-inline-group retain-layouts">
-                            <div className="ff-form-unit">
-                                <input
-                                    className="size-huge ff-input"
-                                    id="searchQuery"
-                                    placeholder="Search..."
-                                    onChange={(e) => {
-                                        dispatch({
-                                            type: 'TYPED_QUERY',
-                                            payload: e.currentTarget.value
-                                        })
-                                    }}
-                                    defaultValue={state.query}
-                                />
+            <section className="hero">
+                <div className="hero-body">
+                    <div className="container">
+                        <div className="columns">
+                            <div className="column">
+                                <Header text="Search with" />
                             </div>
                         </div>
+                        <div className="columns">
+                            <div className="column">
+                                <div className="field">
+                                    <div className="control">
+                                        <input
+                                            className="input is-large"
+                                            id="searchQuery"
+                                            placeholder="Search..."
+                                            onChange={(e) => {
+                                                dispatch({
+                                                    type: 'TYPED_QUERY',
+                                                    payload: e.currentTarget.value
+                                                })
+                                            }}
+                                            defaultValue={state.query}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {state.isTypedQuery ?
+                            <div className="columns">
+                                <div className="column">
+                                    <div className="buttons">
+                                        <Search query={state.query} />
+                                    </div>
+                                </div>
+                            </div> : null
+                        }
                     </div>
                 </div>
-
-                {state.isTypedQuery ?
-                    <div className="row">
-                        <div className="portion whole">
-                            <Search query={state.query} />
-                        </div>
-                    </div> : null
-                }
             </section>
         </Fragment>
     )
