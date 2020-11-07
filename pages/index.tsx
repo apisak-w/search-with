@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { Fragment, useReducer } from 'react'
 import Header from '../components/Header';
-import Search from './search';
+import Search from '../components/_Search';
 
 interface IState {
     isTypedQuery: boolean,
